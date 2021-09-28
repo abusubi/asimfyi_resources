@@ -1,5 +1,3 @@
-<script type="text/javascript">
-
 //Check if page visited.
 //localStorage.setItem('visited-'+window.location.pathname, 'visitedtrue');
 
@@ -52,4 +50,3 @@ window.addEventListener("scroll", function(){
         //Print Visited- in localstorage and console.
         }, 50)
 }, false)
-</script>
