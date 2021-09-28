@@ -1,4 +1,4 @@
-<script>
+<script type="text/javascript">
 
 //Check if page visited.
 //localStorage.setItem('visited-'+window.location.pathname, 'visitedtrue');
