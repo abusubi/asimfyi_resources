@@ -1,4 +1,3 @@
-super-embed:
 <script>
 
 //Check if page visited.
@@ -13,10 +12,10 @@ function getDocHeight() {
         D.body.scrollHeight, D.documentElement.scrollHeight,
         D.body.offsetHeight, D.documentElement.offsetHeight,
         D.body.clientHeight, D.documentElement.clientHeight
-    )
+    );
 }
 
-var docheight = getDocHeight()
+var docheight = getDocHeight();
 
 var winheight, docheight, trackLength, throttlescroll
 
@@ -38,18 +37,18 @@ function amountscrolled(){
     }
 }
 
-getmeasurements()
+getmeasurements();
 
 window.addEventListener("resize", function(){
-    getmeasurements()
+    getmeasurements();
 }, false)
 
 window.addEventListener("scroll", function(){
-    clearTimeout(throttlescroll)
+    clearTimeout(throttlescroll);
         //Trigger scrollPercent on scroll-timeout.
         // throttle code inside scroll to once every 50 milliseconds
         throttlescroll = setTimeout(function(){
-        amountscrolled()
+        amountscrolled();
         //Print Visited- in localstorage and console.
         }, 50)
 }, false)
