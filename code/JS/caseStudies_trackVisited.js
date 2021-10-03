@@ -4,6 +4,15 @@
 //Check and print percent scrolled.
 //If true, record page with prefix visited- in localstorage.
 
+var $notifSlide = document.getElementById('fixed-notif');
+
+/*
+$toggle.addEventListener('click', function() {
+    var isOpen = $notifSlide.classList.contains('slide-in');
+    $notifSlide.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
+});
+*/
+
 function getDocHeight() {
     var D = document;
     return Math.max(
@@ -24,16 +33,23 @@ function getmeasurements(){
     trackLength = docheight - winheight;
 }
 
+function updatePctScrolled ( pctScrolled ) {
+  if ( pctScrolled > 75) {
+      console.log( pctScrolled );
+      localStorage.setItem('visited-'+window.location.pathname, 'visitedtrue');
+  }
+  else {
+    console.log('nope')
+  }
+}
+
+var pctScrolled = 0;
 function amountscrolled(){
     var scrollTop = window.pageYOffset || (document.documentElement
         || document.body.parentNode || document.body).scrollTop;
     // gets percentage scrolled (ie: 80 or NaN if tracklength == 0);
     var pctScrolled = Math.floor(scrollTop/trackLength * 100);
-    console.log(pctScrolled + 'is the pct currently');
-    console.log(pctScrolled + '% scrolled');
-    if (pctScrolled => 75){
-        console.log('Case study marked as visited-');
-    }
+    updatePctScrolled ( pctScrolled );
 }
 
 getmeasurements();
@@ -43,6 +59,8 @@ window.addEventListener("resize", function(){
 }, false)
 
 window.addEventListener("scroll", function(){
+
+
     clearTimeout(throttlescroll);
         //Trigger scrollPercent on scroll-timeout.
         // throttle code inside scroll to once every 50 milliseconds
@@ -50,4 +68,6 @@ window.addEventListener("scroll", function(){
         amountscrolled();
         //Print Visited- in localstorage and console.
         }, 50)
+
+
 }, false)
