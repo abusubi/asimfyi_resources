@@ -37,8 +37,6 @@ function getmeasurements(){
 function updatePctScrolled ( pctScrolled ) {
   if ( pctScrolled > 75) {
       console.log( pctScrolled );
-      var isOpen = $notifSlide.classList.contains('slide-out');
-
       localStorage.setItem('visited-'+window.location.pathname, 'visitedtrue');
       $notifSlide.setAttribute('class', isOpen, 'slide-in');
   }
