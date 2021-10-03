@@ -5,6 +5,7 @@
 //If true, record page with prefix visited- in localstorage.
 
 var $notifSlide = document.getElementById('fixed-notif');
+var isOpen = $notifSlide.classList.contains('slide-out');
 
 /*
 $toggle.addEventListener('click', function() {
@@ -36,13 +37,14 @@ function getmeasurements(){
 function updatePctScrolled ( pctScrolled ) {
   if ( pctScrolled > 75) {
       console.log( pctScrolled );
+      var isOpen = $notifSlide.classList.contains('slide-out');
+
       localStorage.setItem('visited-'+window.location.pathname, 'visitedtrue');
-//    var isOpen = $notifSlide.classList.contains('slide-in');
-      $notifSlide.setAttribute('class', 'slide-in');
+      $notifSlide.setAttribute('class', isOpen, 'slide-in');
   }
   else {
     console.log('nope')
-    $notifSlide.setAttribute('class', 'slide-out');
+    $notifSlide.setAttribute('class', isOpen, 'slide-out');
   }
 }
 
