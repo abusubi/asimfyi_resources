@@ -37,11 +37,12 @@ function updatePctScrolled ( pctScrolled ) {
   if ( pctScrolled > 75) {
       console.log( pctScrolled );
       localStorage.setItem('visited-'+window.location.pathname, 'visitedtrue');
-      var isOpen = $notifSlide.classList.contains('slide-in');
-      $notifSlide.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
+//    var isOpen = $notifSlide.classList.contains('slide-in');
+      $notifSlide.setAttribute('class', 'slide-in');
   }
   else {
     console.log('nope')
+    $notifSlide.setAttribute('class', 'slide-out');
   }
 }
 
